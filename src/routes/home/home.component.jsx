@@ -3,7 +3,7 @@
 import Categories from '../../components/categories/categories.component'
 
 const Home = () => {
-  const categories = [
+  const data = [
     {
       "id": 1,
       "title": "hats",
@@ -35,7 +35,10 @@ const Home = () => {
       'path': 'mens'
     }
   ]
-  return <Categories users={categories} />;
+  return (
+    <Categories categories={data} />
+  )
+
 }
 
 export default Home;
