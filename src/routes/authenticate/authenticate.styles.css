@@ -1,0 +1,8 @@
+.authenticate-container {
+  width: 1200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 10%;
+       column-gap: 10%;
+}/*# sourceMappingURL=authenticate.styles.css.map */

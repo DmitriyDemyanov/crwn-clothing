@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState} from "react";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils'
 
@@ -9,6 +8,7 @@ import './sign-in-form.component.styles.scss';
 
 import Button from "../button/button.component";
 import FormInput from '../form-input/form-input.component';
+
 
 const defaultFormFields = {
   email: '',
@@ -21,22 +21,16 @@ const SignInForm = () => {
   const { email,password } = formFields;
 
   const handleChange = (event) => {
-    console.log('event.target',event.target);
     const { name,value } = event.target;
 
     setFormFields({ ...formFields,[name]: value });
   };
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-  }
-
   const clickSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthWithEmailAndPassword(email,password);
-      console.log(response)
+      await signInAuthWithEmailAndPassword(email,password);
+      setFormFields(defaultFormFields);
     } catch (error) {
       switch (error.code) {
         case 'auth/invalid-login-credentials':
@@ -80,7 +74,7 @@ const SignInForm = () => {
         <div className='wrapper-sign-in-form'>
           <Button > Sign In</Button>
           <Button
-            onClick={logGoogleUser}
+            onClick={signInWithGooglePopup}
             buttonType='google'
             type='button'
           > Sign ip with google

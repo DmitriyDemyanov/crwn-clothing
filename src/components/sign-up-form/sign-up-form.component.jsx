@@ -6,7 +6,6 @@ import Button from '../button/button.component';
 import './sign-up-form.styles.scss'
 
 
-
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -67,8 +66,9 @@ const SingUpForm = () => {
     }
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email,password);
-      const userDocRef = await createUserDocumentFromAuth({ ...user,displayName });
-      console.log(userDocRef);
+
+      await createUserDocumentFromAuth({ ...user,displayName });
+
       setFormFields(defaultFormFields);
     } catch (error) {
       let message = error.message;

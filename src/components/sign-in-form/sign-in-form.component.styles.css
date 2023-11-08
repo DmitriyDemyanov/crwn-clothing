@@ -1,0 +1,6 @@
+.wrapper-sign-in-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 5%;
+       column-gap: 5%;
+}/*# sourceMappingURL=sign-in-form.component.styles.css.map */
