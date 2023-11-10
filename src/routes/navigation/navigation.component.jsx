@@ -32,8 +32,6 @@ const Navigation = () => {
                 <Link className='nav-link' to='auth'> SIGN IN</Link>
               )
             }
-
-            <Link className='nav-link' to='/shop'> Shop</Link>
             <CartIcon />
         </div>
         
