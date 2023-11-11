@@ -61,12 +61,11 @@ export const CartProvider = ({ children }) => {
   console.log(checkOutSum);
   useEffect(() => {
     setCartCount(cartItems.reduce((acc,{ quantity }) => acc + quantity,0));
-    const totalPriceCart = cartItems.reduce((acc,{ price,quantity }) => acc + price * quantity,0)
-    setCheckOutSum(totalPriceCart);
-    console.log('testSum',totalPriceCart);
+    setCheckOutSum(cartItems.reduce((acc,{ price,quantity }) => acc + price * quantity,0));
+   
   },[cartItems]);
 
-
+  // created useEffect and added function  serDecrHide(false), [????]
 
 
   const addItemToCart = (productToAdd) => {

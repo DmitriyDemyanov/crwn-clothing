@@ -6,6 +6,8 @@ import { CartContext } from '../../context/cart.context';
 import './checkout-item.styles.scss'
 
 const CheckoutItem = ({ item }) => {
+  const hideClass = item.quantity === 1 ? 'hide-btn' : ''
+  
   const { addItemToCart,removeToCart,deleteItemFromCart,checkOutSum } = useContext(CartContext);
   return (
     <div>
@@ -15,7 +17,7 @@ const CheckoutItem = ({ item }) => {
       {item.quantity}
       <div>
         <p onClick={() => addItemToCart(item)}>increment</p>
-        <p onClick={() => removeToCart(item)}>decrement</p>
+        <p className={hideClass} onClick={() => removeToCart(item)}>decrement</p>
         <p onClick={() => deleteItemFromCart(item)}>DELETE</p>
       </div>
       <h3> Items price: $ {item.quantity * item.price }</h3>
