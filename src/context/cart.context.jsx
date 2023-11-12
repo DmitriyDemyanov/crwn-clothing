@@ -10,27 +10,26 @@ const addCartItem = (cartItems,productToAdd) => {
   }
   return updatedCart;
 }
-
-const removeCartItem = (cartItems,productToAdd,setDecrHide) => {
-  const updatedCart = [...cartItems];
-  const itemInCart = updatedCart.find((productInCart) => productInCart.id === productToAdd.id);
-  if (itemInCart.quantity <= 1) {
-    setDecrHide(false);
-    //deleteInCart(cartItems,productToAdd);????????????????????????????????????????????????
-  }
-  else {
-    //some variable =  false
-    itemInCart.quantity--;
-    setDecrHide(true);
-  }
-  return updatedCart;
-}
-
-const deleteInCart = (cartItems,productToAdd) => {
+const deleteInCart = (cartItems,productToDelete) => {
   const refreshArrayCart = [...cartItems];
-  const foundItem = refreshArrayCart.find((productItem) => productToAdd.id === productItem.id);
+  const foundItem = refreshArrayCart.find((productItem) => productToDelete.id === productItem.id);
   return refreshArrayCart.filter((item) => item !== foundItem);
 
+}
+
+const removeCartItem = (cartItems,productToOff) => {
+  const updatedCart = [...cartItems];
+  const itemInCart = updatedCart.find((productInCart) => productInCart.id === productToOff.id);
+  if (itemInCart.quantity <= 1) {
+
+    return deleteInCart(cartItems,itemInCart)
+  }
+  else {
+
+    itemInCart.quantity--;
+
+  }
+  return updatedCart;
 }
 
 
@@ -45,9 +44,6 @@ export const CartContext = createContext({
   checkOutSum: 0,
   setCheckOutSum: () => { },
 
-  decrHide: true,
-  serDecrHide: () => { },
-
   deleteItemFromCart: () => { },
 });
 
@@ -57,28 +53,24 @@ export const CartProvider = ({ children }) => {
   const [cartItems,setCartItems] = useState([]);
   const [cartCount,setCartCount] = useState(0);
   const [checkOutSum,setCheckOutSum] = useState(0);
-  const [decrHide,setDecrHide] = useState(true);   // try create class hide-------
-  console.log(checkOutSum);
+
   useEffect(() => {
     setCartCount(cartItems.reduce((acc,{ quantity }) => acc + quantity,0));
     setCheckOutSum(cartItems.reduce((acc,{ price,quantity }) => acc + price * quantity,0));
-   
+
   },[cartItems]);
-
-  // created useEffect and added function  serDecrHide(false), [????]
-
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems,productToAdd));
   }
   const removeToCart = (productToAdd) => {
-    setCartItems(removeCartItem(cartItems,productToAdd,setDecrHide))
+    setCartItems(removeCartItem(cartItems,productToAdd))
   }
-  const deleteItemFromCart = (productToAdd) => {
-    setCartItems(deleteInCart(cartItems,productToAdd));
+  const deleteItemFromCart = (productToDelete) => {
+    setCartItems(deleteInCart(cartItems,productToDelete));
   }
 
-  const value = { cartOpened,setCartOpened,addItemToCart,cartItems,cartCount,removeToCart,decrHide,deleteItemFromCart,checkOutSum };
+  const value = { cartOpened,setCartOpened,addItemToCart,cartItems,cartCount,removeToCart,deleteItemFromCart,checkOutSum };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

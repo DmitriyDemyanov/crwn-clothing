@@ -6,7 +6,7 @@ import { CartContext } from '../../context/cart.context';
 import './checkout-item.styles.scss'
 
 const CheckoutItem = ({ item }) => {
-  const hideClass = item.quantity === 1 ? 'hide-btn' : ''
+  const hideClass = item.quantity === 1 ? 'hide-btn' : '';
   
   const { addItemToCart,removeToCart,deleteItemFromCart,checkOutSum } = useContext(CartContext);
   return (
