@@ -22,7 +22,7 @@ const removeCartItem = (cartItems,productToOff) => {
   const itemInCart = updatedCart.find((productInCart) => productInCart.id === productToOff.id);
   if (itemInCart.quantity <= 1) {
 
-    return deleteInCart(cartItems,itemInCart)
+    return deleteInCart(cartItems,itemInCart);
   }
   else {
 
@@ -57,7 +57,6 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     setCartCount(cartItems.reduce((acc,{ quantity }) => acc + quantity,0));
     setCheckOutSum(cartItems.reduce((acc,{ price,quantity }) => acc + price * quantity,0));
-
   },[cartItems]);
 
   const addItemToCart = (productToAdd) => {
