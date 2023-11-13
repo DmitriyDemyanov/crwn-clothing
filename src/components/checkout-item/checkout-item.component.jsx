@@ -6,22 +6,26 @@ import { CartContext } from '../../context/cart.context';
 import './checkout-item.styles.scss'
 
 const CheckoutItem = ({ item }) => {
-  const hideClass = item.quantity === 1 ? 'hide-btn' : '';
-  
-  const { addItemToCart,removeToCart,deleteItemFromCart,checkOutSum } = useContext(CartContext);
+
+  const { imageUrl,name,quantity,price } = item;
+  const hideClass1 = () => quantity === 1 ? 'hide-btn' : '';
+  const { addItemToCart,removeToCart,deleteItemFromCart } = useContext(CartContext);
+
+
   return (
-    <div>
-      <hr />
-      {item.name}
-      <br />
-      {item.quantity}
-      <div>
-        <p onClick={() => addItemToCart(item)}>increment</p>
-        <p className={hideClass} onClick={() => removeToCart(item)}>decrement</p>
-        <p onClick={() => deleteItemFromCart(item)}>DELETE</p>
+    <div className='checkout-item-container'>
+      <div className='image-container'>
+        <img src={imageUrl} alt={`${name}`} />
       </div>
-      <h3> Items price: $ {item.quantity * item.price }</h3>
-      <h5> TOTAL: $ {checkOutSum}</h5>
+      <span className='name'>{name}</span>
+      <span className='quantity' >
+        <div className={`${hideClass1()} arrow`} onClick={() => removeToCart(item)} > &#10094;</div>
+        <span className='value'>{quantity}</span>
+        <div className='arrow' onClick={() => addItemToCart(item)}>&#10095;</div>
+      </span>
+
+      <span className='price'> {price}</span>
+      <div className='remove-button' onClick={() => deleteItemFromCart(item)}> &#10005;</div>
     </div>
   )
 }

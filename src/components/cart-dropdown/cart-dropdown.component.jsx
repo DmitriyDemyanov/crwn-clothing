@@ -10,13 +10,13 @@ import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = () => {
-  const { cartOpened,cartItems } = useContext(CartContext);
+  const { cartOpened,cartItems} = useContext(CartContext);
 
   const navigate = useNavigate();
   const goToCheckout = () => {
     navigate('checkout');
   }
-
+ 
   return (
     <Fragment>
       {
