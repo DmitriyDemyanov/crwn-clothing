@@ -1,17 +1,18 @@
 import { useContext,Fragment } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import { CategoriesContext } from '../../context/categories.context';
+import { Link } from 'react-router-dom'
+
 import ProductCard from '../../components/product-card/product-card.component';
 
 
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
-  const navigate = useNavigate();
-  const goToCategory = (title) => {
-    console.log('title:1:',title);
-    navigate(title);
-  }
+  // const navigate = useNavigate();
+  // const goToCategory = (title) => {
+  //   navigate(title);
+  // }
   return (
     <Fragment>
       {
@@ -19,7 +20,7 @@ const CategoriesPreview = () => {
           return (
             <Fragment key={title}>
               <h2 className='category-title'>
-                <span onClick={() => goToCategory(title)}>{title.toUpperCase()}</span>
+                <Link to={title}>{title.toUpperCase()}</Link>
               </h2>
               <div className='products-container'>
                 {categoriesMap[title]

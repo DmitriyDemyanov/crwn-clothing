@@ -6,12 +6,6 @@ import Authenticate from './routes/authenticate/authenticate.component'
 import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
 
-// const Hats = () => (
-//   <div>
-//     <h1>Hats</h1>
-//   </div>
-// )
-
 
 const App = () => (
   <div>
