@@ -14,7 +14,7 @@ const CartIcon = () => {
 
   return (
     <CartIconContainer onClick={() => setCartOpened(!cartOpened)}>
-      <CartImage className='shopping-icon' />
+      <CartImage />
       <CartCount>{cartCount}</CartCount>
     </CartIconContainer>
   )
