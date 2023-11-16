@@ -21,18 +21,18 @@ export const CategoryBodyContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
-   h2 {
-      font-weight: bold;
-      margin: 0 6px 0;
-      font-size: 22px;
-      color: #4a4a4a;
-      text-transform: uppercase;
-    }
+  h2 {
+    font-weight: bold;
+    margin: 0 6px 0;
+    font-size: 22px;
+    color: #4a4a4a;
+    text-transform: uppercase;
+  }
 
-    p {
-      font-weight: lighter;
-      font-size: 16px;
-    }
+  p {
+    font-weight: lighter;
+    font-size: 16px;
+  }
 `
 
 export const CategoryContainer = styled(Link)`
@@ -59,12 +59,12 @@ export const CategoryContainer = styled(Link)`
     }
   
   }
-  /* &:first-child {
+  &:first-child {
     margin-right: 7.5px;
   }
   &:last-child {
     margin-left: 7.5px;
-  } */
+  }
 `
 
 
