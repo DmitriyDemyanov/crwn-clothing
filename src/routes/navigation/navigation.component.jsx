@@ -12,7 +12,7 @@ import { NavigationContainer,LogoContainer,NavLinksContainer,NavLink } from "./n
 const Navigation = () => {
 
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+ 
 
   return (
     <Fragment>

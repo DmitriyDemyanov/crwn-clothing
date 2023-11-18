@@ -11,7 +11,7 @@ const CategoryItem = ({ category }) => {
   return (
     <CategoryContainer onClick={() => routeToProduct(path)}>
 
-      <BackGroundImage imageUrl={imageUrl} />
+      <BackGroundImage image={imageUrl} />
 
       <CategoryBodyContainer>
         <h2>{title}</h2>
