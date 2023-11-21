@@ -3,7 +3,7 @@ import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from '.
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
-import './sign-up-form.styles.scss'
+
 
 
 const defaultFormFields = {
@@ -81,7 +81,7 @@ const SingUpForm = () => {
   };
 
   return (
-    <div className='sing-up-container'>
+    <div>
       <h2>Don't have an account?</h2>
       <span>Sign up with you email and password</span>
 
@@ -134,10 +134,7 @@ const SingUpForm = () => {
           minLength='6'
         />
 
-
-
         <Button type='submit' > Sign Up</Button>
-
       </form>
     </div>
   )
