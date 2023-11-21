@@ -33,7 +33,7 @@ const firebaseConfig = {
 
 
 const fireBaseApp = initializeApp(firebaseConfig);
-console.log('fireBaseApp',fireBaseApp)
+// console.log('fireBaseApp',fireBaseApp)
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
   prompt: 'select_account'
@@ -79,8 +79,8 @@ export const createUserDocumentFromAuth = async (userAuth) => {
 
   const userSnapshot = await getDoc(userDocRef);
 
-  console.log(userSnapshot);
-  console.log(userSnapshot.exists());
+  // console.log(userSnapshot);
+  // console.log(userSnapshot.exists());
 
   if (!userSnapshot.exists()) {
     const { displayName,email } = userAuth;
