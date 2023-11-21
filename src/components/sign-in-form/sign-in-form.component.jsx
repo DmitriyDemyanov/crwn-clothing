@@ -4,7 +4,7 @@ import {
   signInAuthWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils'
 
-import './sign-in-form.component.styles.scss';
+import { WrapperButtonsForm } from './sign-in-form.component.styles.jsx';
 
 import Button,{ BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from '../form-input/form-input.component';
@@ -47,7 +47,7 @@ const SignInForm = () => {
   }
 
   return (
-    <div className='sing-up-container'>
+    <div>
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
 
@@ -71,7 +71,7 @@ const SignInForm = () => {
           value={password}
           minLength='6'
         />
-        <div className='wrapper-sign-in-form'>
+        <WrapperButtonsForm>
           <Button > Sign In</Button>
           <Button
             onClick={signInWithGooglePopup}
@@ -79,7 +79,7 @@ const SignInForm = () => {
             type='button'
           > Sign ip with google
           </Button>
-        </div>
+        </WrapperButtonsForm>
       </form>
     </div>
   )
