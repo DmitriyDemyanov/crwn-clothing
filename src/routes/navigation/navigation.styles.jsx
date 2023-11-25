@@ -41,4 +41,11 @@ export const NavLinksContainer = styled.div`
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  @media(max-width: 600px) {
+  background: -webkit-linear-gradient(bottom, yellow 50%, blue 43%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: bolder;
+  }
 `
