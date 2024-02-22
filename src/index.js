@@ -7,6 +7,7 @@ import App from './App';
 import { UserProvider } from './context/user.context';
 import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
+import { FavorContext } from './context/favorites.context'
 
 import './index.scss';
 
@@ -19,7 +20,9 @@ root.render(
       <UserProvider>
         <CategoriesProvider>
           <CartProvider>
-            <App />
+            <FavorContext.Provider>
+              <App />
+            </FavorContext.Provider>
           </CartProvider>
         </CategoriesProvider>
 

@@ -1,4 +1,4 @@
-import { createContext,useState,useEffect } from "react";
+import { createContext,useState,useEffect,useReducer } from "react";
 
 const addCartItem = (cartItems,productToAdd) => {
   const updatedCart = [...cartItems];
@@ -15,33 +15,63 @@ const deleteInCart = (cartItems,{ id }) => cartItems.filter((item) => item.id !=
 export const CartContext = createContext({
   cartOpened: false,
   setCartOpened: () => { },
-
   cartItems: [],
   setCartItems: () => { },
-
   addItemToCart: () => { },
   cartCount: 0,
-
   setCartCount: () => { },
   removeToCart: () => { },
   checkOutSum: 0,
   setCheckOutSum: () => { },
-
   deleteItemFromCart: () => { },
 });
 
+export const OPENED_CART_TYPES = {
+  SET_CART_OPENED: 'SET_CART_OPENED',
+}
+
+const INITIAL_STATE = {
+  cartOpened: false,
+}
+
+const cartReducer = (state,action) => {
+  const { type,payload } = action;
+
+
+  switch (type) {
+    case OPENED_CART_TYPES.SET_CART_OPENED:
+      return {
+        ...state,
+        cartOpened: payload,
+      }
+
+    default:
+      throw new Error(`cart error - ${type}`)
+  }
+}
+
+
+
 export const CartProvider = ({ children }) => {
 
-  const [cartOpened,setCartOpened] = useState(false);
+  // const [cartOpened,setCartOpened] = useState(false);
+  const [{ cartOpened },dispatch] = useReducer(cartReducer,INITIAL_STATE.cartOpened);
+
+  const setCartOpened = (user) => {
+    dispatch({ type: OPENED_CART_TYPES.SET_CART_OPENED,payload: user })
+  }
+
+
   const [cartItems,setCartItems] = useState([]);
   const [cartCount,setCartCount] = useState(0);
   const [checkOutSum,setCheckOutSum] = useState(0);
+
 
   useEffect(() => {
     setCartCount(cartItems.reduce((acc,{ quantity }) => acc + quantity,0));
     setCheckOutSum(cartItems.reduce((acc,{ price,quantity }) => acc + price * quantity,0));
   },[cartItems]);
-  
+
 
   const removeCartItem = (cartItems,productToOff) => {
     const updatedCart = [...cartItems];
