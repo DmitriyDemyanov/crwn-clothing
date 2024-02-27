@@ -75,9 +75,10 @@ const SignInForm = () => {
           <Button > Sign In</Button>
           <Button
             onClick={signInWithGooglePopup}
-            buttonType={BUTTON_TYPE_CLASSES.google}
+            buttonType={BUTTON_TYPE_CLASSES.yellow}
             type='button'
-          > Sign ip with google
+          >
+            Sign in with google
           </Button>
         </WrapperButtonsForm>
       </form>

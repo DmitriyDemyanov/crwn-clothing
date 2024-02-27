@@ -17,6 +17,6 @@ export const CartCount = styled.span`
   bottom: 12px;
 `
 export const CartImage = styled(Cart)`
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 `

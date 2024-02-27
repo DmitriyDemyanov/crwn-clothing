@@ -36,9 +36,11 @@ export const NavLinksContainer = styled.div`
   justify-content: flex-end;
   @media(max-width: 600px) {
     width: 80%;
+    
   }
 `
 export const NavLink = styled(Link)`
+  text-transform: uppercase;  
   padding: 10px 15px;
   cursor: pointer;
   @media(max-width: 600px) {
@@ -47,5 +49,6 @@ export const NavLink = styled(Link)`
   -webkit-text-fill-color: transparent;
   text-decoration: none;
   font-weight: bolder;
+  
   }
 `

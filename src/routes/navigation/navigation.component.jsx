@@ -7,7 +7,7 @@ import { UserContext } from "../../context/user.context";
 import { userSignOut } from '../../utils/firebase/firebase.utils';
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-import Favorites from '../../components/favorites/favorites.component'
+// import Favorites from '../favor/favorites.component'
 import { NavigationContainer,LogoContainer,NavLinksContainer,NavLink } from "./navigation.styles";
 
 const Navigation = () => {
@@ -24,8 +24,10 @@ const Navigation = () => {
         </LogoContainer>
 
         <NavLinksContainer >
+          
+          <NavLink to='/tv'> tv </NavLink>
 
-          <Favorites />
+          <NavLink to='/favor'>favorites</NavLink>
 
           <NavLink to='/shop'> SHOP</NavLink>
           {

@@ -4,6 +4,7 @@ import { CartItemContainer,CartImage,CartSpan,CartItemsDetails } from './cart-it
 
 const CartItem = ({ cartItem }) => {
   const { name,quantity,price,imageUrl } = cartItem;
+  console.log(imageUrl);
   return (
     <CartItemContainer>
       <CartImage src={imageUrl} alt={name} />

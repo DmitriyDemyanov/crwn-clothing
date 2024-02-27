@@ -7,9 +7,11 @@ import App from './App';
 import { UserProvider } from './context/user.context';
 import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
-import { FavorContext } from './context/favorites.context'
+import { FavorProvider } from './context/favorites.context'
 
 import './index.scss';
+
+// https://api.tvmaze.com/search/shows?q=postman
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,9 +22,9 @@ root.render(
       <UserProvider>
         <CategoriesProvider>
           <CartProvider>
-            <FavorContext.Provider>
+            <FavorProvider>
               <App />
-            </FavorContext.Provider>
+            </FavorProvider>
           </CartProvider>
         </CategoriesProvider>
 

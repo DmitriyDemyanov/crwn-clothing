@@ -12,10 +12,9 @@ const CheckoutItem = ({ item }) => {
   const { imageUrl,name,quantity,price } = item;
   const hideClass1 = () => quantity === 1 ? 'hide-btn' : '';
   const { addItemToCart,removeToCart,deleteItemFromCart } = useContext(CartContext);
+  const { addItemToFavor } = useContext(FavorContext);
 
 
-
-  console.log('!@!#@#$#$%',useContext(FavorContext))
   return (
     <Fragment>
       <CheckoutItemContainer>
@@ -34,7 +33,7 @@ const CheckoutItem = ({ item }) => {
 
       </CheckoutItemContainer>
       <div>
-        <button onClick={() => console.log(item)}>add to favorite</button>
+        <button onClick={() => addItemToFavor(item)}>add to favorite</button>
       </div>
     </Fragment>
   )
