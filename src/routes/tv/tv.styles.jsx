@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const WrapTVContent = styled.div`
-  display: flex;
-  /* flex-direction: column; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap:  40px;
 `
 
 export const TvContainer = styled.div`
@@ -12,4 +13,8 @@ export const TvContainer = styled.div`
   color: red;
   font-size: 24px;
   font-weight: bolder;
+`
+
+export const CartItemContainer = styled.div`
+  background-color: yellow;
 `
