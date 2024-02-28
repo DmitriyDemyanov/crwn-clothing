@@ -46,8 +46,17 @@ export const InvertedButton = styled(BaseButton)`
   }
 `
 export const YellowSignButton = styled(BaseButton)`
-  background-color: yellow;
-  color: var(--main-font-color);
+  min-width: 105px;
+  height: 35px;
+  line-height: 35px;
+  background-color:transparent;
+  border: solid 2px var(--main-todo-color);
+  border-radius: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  color: var(--main-todo-color);
+  text-transform: capitalize;
+
 
   &:hover {
     background-color: #357ae8;

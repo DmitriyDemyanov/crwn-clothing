@@ -3,7 +3,8 @@ import { useContext,useRef } from 'react';
 import { TodoContext } from '../../context/todo.context'
 
 import { TodoListContainer,Input } from './todoList.styles';
-import Button,{ BUTTON_TYPE_CLASSES } from '../../components/button/button.component'
+import Button,{ BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
+import TodoItem from '../../components/todo/todo-item.component'
 
 const TodoList = () => {
   const { todoGrocery,addToTodoList } = useContext(TodoContext);
@@ -26,19 +27,29 @@ const TodoList = () => {
 
     <TodoListContainer>
       <div className='wrapper-todo'>
-        <form onSubmit={saveProductInput}>
+        <div className='todo-title'>shopping list</div>
+
+        <form className='wrapper-form' onSubmit={saveProductInput}>
           <Input
-            placeholder='input product'
+            placeholder='Title...'
             ref={inputName}
           />
           <Input
-            placeholder='input number'
+            placeholder=''
             type='number'
             ref={inputQuantity}
           />
-          <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.yellow}>Add to list</Button>
+          <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.yellow}>Add</Button>
         </form>
+
+
+        <TodoItem></TodoItem>
+        <TodoItem></TodoItem>
+        <TodoItem></TodoItem>
+        <TodoItem></TodoItem>
+        <TodoItem></TodoItem>
       </div>
+
       <div className='bg-image_pixel'></div>
     </TodoListContainer>
   )
