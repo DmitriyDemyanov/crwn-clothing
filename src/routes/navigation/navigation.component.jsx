@@ -25,6 +25,8 @@ const Navigation = () => {
 
         <NavLinksContainer >
           
+          <NavLink to='todo'>TOdo</NavLink>
+          
           <NavLink to='/tv'> tv </NavLink>
 
           <NavLink to='/favor'>favorites</NavLink>

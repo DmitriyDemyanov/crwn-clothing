@@ -7,6 +7,7 @@ import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
 import Favorites from './routes/favor/favorites.component';
 import TvMain from './routes/tv/tv.component';
+import TodoList from './routes/todo-list/todoList.component';
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
         <Route path='checkout' element={<Checkout />} />
         <Route path='favor' element={<Favorites />} />
         <Route path='tv' element={<TvMain />} />
+        <Route path='todo' element={<TodoList />}></Route>
       </Route>
 
     </Routes>

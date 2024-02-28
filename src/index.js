@@ -7,7 +7,8 @@ import App from './App';
 import { UserProvider } from './context/user.context';
 import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
-import { FavorProvider } from './context/favorites.context'
+import { FavorProvider } from './context/favorites.context';
+import { TodoProvider } from './context/todo.context';
 
 import './index.scss';
 
@@ -23,7 +24,9 @@ root.render(
         <CategoriesProvider>
           <CartProvider>
             <FavorProvider>
-              <App />
+              <TodoProvider>
+                <App />
+              </TodoProvider>
             </FavorProvider>
           </CartProvider>
         </CategoriesProvider>

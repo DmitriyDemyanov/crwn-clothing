@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
-export const WrapTVContent = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap:  40px;
+export const TitleMovie = styled.h1`
+  text-align: center;
+  font-size: 40px;
+  color: greenyellow;
 `
 
 export const TvContainer = styled.div`
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  color: red;
-  font-size: 24px;
-  font-weight: bolder;
+ 
+  display: grid;
+  padding: 0 30px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 60px;
 `
 
-export const CartItemContainer = styled.div`
-  background-color: yellow;
-`
+

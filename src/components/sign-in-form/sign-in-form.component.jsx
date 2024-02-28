@@ -75,7 +75,7 @@ const SignInForm = () => {
           <Button > Sign In</Button>
           <Button
             onClick={signInWithGooglePopup}
-            buttonType={BUTTON_TYPE_CLASSES.yellow}
+            buttonType={BUTTON_TYPE_CLASSES.google}
             type='button'
           >
             Sign in with google

@@ -1,7 +1,8 @@
 import {
   BaseButton,
   GoogleSignButton,
-  InvertedButton
+  InvertedButton,
+  YellowSignButton
 } from './button.styles'
 
 export const BUTTON_TYPE_CLASSES = {
@@ -26,9 +27,8 @@ const getButton = (buttonType) => {
   if (buttonType === 'inverted') {
     return InvertedButton;
   }
-
   if (buttonType === 'yellow-button') {
-    return InvertedButton;
+    return YellowSignButton;
   }
   return BaseButton;
 };
