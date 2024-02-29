@@ -21,6 +21,8 @@ const TodoList = () => {
     inputQuantity.current.value = "";
   }
 
+
+
   console.log('todoGrocery===>>',todoGrocery);
   console.log('BUTTON_TYPE_CLASSES===>>',BUTTON_TYPE_CLASSES)
   return (
@@ -42,12 +44,8 @@ const TodoList = () => {
           <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.yellow}>Add</Button>
         </form>
 
+        {todoGrocery.length ? todoGrocery.map((el) => (<TodoItem item={el} key={el.id} />)) : <h2>Empty List !</h2>}
 
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
       </div>
 
       <div className='bg-image_pixel'></div>
