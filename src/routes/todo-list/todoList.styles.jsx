@@ -6,12 +6,24 @@ export const TodoListContainer = styled.div`
 margin: 0 auto;
 text-align: center;
 color: antiquewhite;
-width: 1366px;
-height: 768px;
+width: 100vw;
+height: 100vh;
 background-color: black;
 display:flex;
 align-items:center;
 justify-content: space-around;
+
+.wrapper-todo {
+  /* width: 438px; */
+  width: 25%;
+  /* height: 653px; */
+  height: 80vh;
+  padding: 26px 46px 26px 40px;
+  background-image: url(${bgTodo});
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+}
 
 .todo-title {
   margin-bottom: 36px;
@@ -37,26 +49,16 @@ justify-content: space-around;
   }
 }
 
-.wrapper-todo {
-  width: 438px;
-  height: 653px;
-  padding: 26px 46px 26px 40px;
-  background-image: url(${bgTodo});
-  background-size: cover;
-  background-position: center;
-  border-radius: 30px;
-}
-
 
 .bg-image_pixel {
   width: 732px;
-  height:735px;
+  /* height:735px; */
+  height: 80%;
   background-image: url(${bgImage});
-  background-size: cover;
+  background-size:contain;
   background-repeat: no-repeat;
 }
 `
-
 export const Input = styled.input`
   background: none;
   background-color: rgba(255, 255, 255, 0.6);

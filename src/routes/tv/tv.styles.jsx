@@ -7,11 +7,15 @@ export const TitleMovie = styled.h1`
 `
 
 export const TvContainer = styled.div`
- 
-  display: grid;
-  padding: 0 30px;
+  /* display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 60px;
+  gap: 60px; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  background-color: #000;
 `
 
 
