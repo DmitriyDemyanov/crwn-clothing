@@ -9,6 +9,7 @@ import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
 import { FavorProvider } from './context/favorites.context';
 import { TodoProvider } from './context/todo.context';
+import { WeatherProvider } from './context/weather.context';
 
 import './index.scss';
 
@@ -25,7 +26,9 @@ root.render(
           <CartProvider>
             <FavorProvider>
               <TodoProvider>
-                <App />
+                <WeatherProvider>
+                  <App />
+                </WeatherProvider>
               </TodoProvider>
             </FavorProvider>
           </CartProvider>

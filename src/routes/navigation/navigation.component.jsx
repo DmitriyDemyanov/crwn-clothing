@@ -24,9 +24,11 @@ const Navigation = () => {
         </LogoContainer>
 
         <NavLinksContainer >
-          
+
+          <NavLink to='weather'>weather</NavLink>
+
           <NavLink to='todo'>TOdo</NavLink>
-          
+
           <NavLink to='/tv'> tv </NavLink>
 
           <NavLink to='/favor'>favorites</NavLink>

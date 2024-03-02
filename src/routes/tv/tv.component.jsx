@@ -14,7 +14,7 @@ const TvMain = () => {
     const getMoviesList = async () => {
       const response = await fetch('https://api.tvmaze.com/search/shows?q=postman');
       const moviesList = await response.json();
-      setShows(moviesList);
+      setTimeout(() => setShows(moviesList),0);
     }
     getMoviesList();
   },[]);
@@ -26,7 +26,7 @@ const TvMain = () => {
       <TvContainer>
 
         {
-          shows.length ? (shows.map((el,ind) => (<TvItem item={el} key={ind} />))) : (<h2>SPINNER</h2>)
+          shows.length ? (shows.map((el,ind) => (<TvItem item={el} key={ind} />))) : (<h2 style={{ color: "#fff" }}>SPINNER</h2>)
         }
       </TvContainer>
 

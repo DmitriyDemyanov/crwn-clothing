@@ -1,27 +1,24 @@
 import styled from "styled-components";
 import bgImage from "../../assets/image/bg_pixel.png";
-import bgTodo from "../../assets/image/BG_container.png"
 
 export const TodoListContainer = styled.div`
 margin: 0 auto;
 text-align: center;
 color: antiquewhite;
-width: 100vw;
 height: 100vh;
+min-height: 500px;
 background-color: black;
 display:flex;
 align-items:center;
 justify-content: space-around;
 
 .wrapper-todo {
-  /* width: 438px; */
+  min-width: 438px;
   width: 25%;
   /* height: 653px; */
-  height: 80vh;
-  padding: 26px 46px 26px 40px;
-  background-image: url(${bgTodo});
-  background-size: cover;
-  background-position: center;
+  height: 80%;
+  padding: 19px 30px 19px 23px;
+  background: rgba(245, 245, 220, 0.35);
   border-radius: 30px;
 }
 
