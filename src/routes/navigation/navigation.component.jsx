@@ -24,6 +24,8 @@ const Navigation = () => {
         </LogoContainer>
 
         <NavLinksContainer >
+          
+          <NavLink to='avia'>Avia-tickets</NavLink>
 
           <NavLink to='weather'>weather</NavLink>
 

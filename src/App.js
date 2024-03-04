@@ -9,25 +9,27 @@ import Favorites from './routes/favor/favorites.component';
 import TvMain from './routes/tv/tv.component';
 import TodoList from './routes/todo-list/todoList.component';
 import MainWeather from './routes/weather/weather.component';
+import AviaTickets from './routes/avia/avia-tickets.component';
 
+const App = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path='/' element={<Navigation />} >
+          <Route index element={<Home />} />
+          <Route path='auth' element={<Authenticate />} />
+          <Route path='shop/*' element={<Shop />} />
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='favor' element={<Favorites />} />
+          <Route path='tv' element={<TvMain />} />
+          <Route path='todo' element={<TodoList />} />
+          <Route path='weather' element={<MainWeather />} />
+          <Route path='avia' element={<AviaTickets />} />
+        </Route>
+      </Routes>
+    </div>
 
-const App = () => (
-  <div>
-    <Routes>
-      <Route path='/' element={<Navigation />} >
-        <Route index element={<Home />} />
-        <Route path='auth' element={<Authenticate />} />
-        <Route path='shop/*' element={<Shop />} />
-        <Route path='checkout' element={<Checkout />} />
-        <Route path='favor' element={<Favorites />} />
-        <Route path='tv' element={<TvMain />} />
-        <Route path='todo' element={<TodoList />}></Route>
-        <Route path='weather' element={<MainWeather />}></Route>
-      </Route>
-
-    </Routes>
-  </div>
-
-)
+  )
+}
 
 export default App;

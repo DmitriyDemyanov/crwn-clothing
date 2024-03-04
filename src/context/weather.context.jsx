@@ -4,13 +4,12 @@ const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?lat=50.4048
 
 export const WeatherContext = createContext({
   weather: {},
-  setWeather: () => { }, //?
+  setWeather: () => { }
 });
 
 export const WeatherProvider = ({ children }) => {
   const [weather,setWeather] = useState(null);
   const data = { weather };
-
 
   useEffect(() => {
     fetch(WEATHER_URL)
@@ -18,10 +17,10 @@ export const WeatherProvider = ({ children }) => {
       .then((currentWeather) => setWeather(currentWeather));
   },[]);
 
+  // console.log('AFTER FETCH:::',weather);
 
   return (
     <WeatherContext.Provider value={data}>
-
       {children}
     </WeatherContext.Provider>
   )
