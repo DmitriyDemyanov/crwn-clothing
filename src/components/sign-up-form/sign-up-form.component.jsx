@@ -86,16 +86,7 @@ const SingUpForm = () => {
       <span>Sign up with you email and password</span>
 
       <form onSubmit={handleSubmit}>
-        {/* {
-          inputFormSingUp.map((input) => (
-            <FormInput
-              {...input}
-              onChange={handleChange}
-              value={formFields[input.name]}
-              key={input.name}
-            />
-          ))
-        } */}
+     
         <FormInput
           label='Display Name'
           type='text'

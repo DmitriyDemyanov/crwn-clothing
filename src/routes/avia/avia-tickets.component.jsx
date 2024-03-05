@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { Fragment,useContext,useState } from 'react';
 
+import { AviaContext } from '../../context/avia.context';
+
+import AviaCard from '../../components/avia/avia-card.component';
 import { AviaTicketsContainer } from './avia-tickets.styles';
 
 const AviaTickets = () => {
@@ -7,32 +10,40 @@ const AviaTickets = () => {
   const [currency,setCurrency] = useState('US');//  не знаю где посмотреть как записать евро?
   const [currentDropDown,setCurrentDropDown] = useState(true);
 
-
+  const { setSendTicket } = useContext(AviaContext)
   const toggleDropDown = () => setCurrentDropDown(!currentDropDown);
   const currencySelection = (cur) => {
     setCurrency(cur);
     setCurrentDropDown(false);
   }
 
-  console.log(currentDropDown)
+  const submitForm = (item) => {
+    setSendTicket({ ...item,currency: currency })
+  }
 
   return (
-    <AviaTicketsContainer>
 
-      <a href='/' className='wrapper-logo' >
-        <img src={require('../../assets/image/plane/airplane.png')} alt='logo' />
-        <div>Avia-Tickets</div>
-      </a>
+    <Fragment>
+      <AviaTicketsContainer>
 
-      <div className='currency-wrapper' onClick={() => toggleDropDown()}>{currency === 'US' ? '$ US Dollar' : '₴ Euro'}
-        <div className={`drop-down-currency ${currentDropDown ? 'hide' : ''}`}>
-          <div onClick={() => currencySelection('US')} >$ US Dollar</div>
-          <div onClick={() => currencySelection('EURO')} >₴ EURO</div>
+        <a href='/' className='wrapper-logo' >
+          <img src={require('../../assets/image/plane/airplane.png')} alt='logo' />
+          <div>Avia-Tickets</div>
+        </a>
+
+        <div className='currency-wrapper' onClick={() => toggleDropDown()}>{currency === 'US' ? '$ US Dollar' : '₴ Euro'}
+          <div className={`drop-down-currency ${currentDropDown ? 'hide' : ''}`}>
+            <div className={`currency-hover ${currency === 'US' ? 'active-currency' : ''}`}
+
+              onClick={() => currencySelection('US')} >$ US Dollar</div>
+            <div className={`currency-hover ${currency === 'EURO' ? 'active-currency' : ''}`}
+              onClick={() => currencySelection('EURO')} >₴ EURO</div>
+          </div>
         </div>
-      </div>
 
-
-    </AviaTicketsContainer>
+      </AviaTicketsContainer>
+      <AviaCard getForm={submitForm} />
+    </Fragment>
   )
 };
 

@@ -2,14 +2,18 @@ import {
   BaseButton,
   GoogleSignButton,
   InvertedButton,
-  YellowSignButton
+  YellowSignButton,
+  PurpleAviaTicketSearch,
+  PinkAviaTicketReset
 } from './button.styles'
 
 export const BUTTON_TYPE_CLASSES = {
   base: 'base',
   google: 'google-sign-in',
   inverted: 'inverted',
-  yellow: 'yellow-button'
+  yellow: 'yellow-button',
+  purple: 'purple-button',
+  pink: 'pink-button'
 }
 
 // const getButton2 = (buttonType = BUTTON_TYPE_CLASSES.base) =>
@@ -29,6 +33,12 @@ const getButton = (buttonType) => {
   }
   if (buttonType === 'yellow-button') {
     return YellowSignButton;
+  }
+  if (buttonType === 'purple-button') {
+    return PurpleAviaTicketSearch;
+  }
+  if (buttonType === 'pink-button') {
+    return PinkAviaTicketReset;
   }
   return BaseButton;
 };

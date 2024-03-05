@@ -27,16 +27,26 @@ export const AviaTicketsContainer = styled.div`
     width: 150px;
     text-align: center;
     .drop-down-currency {
+      font-size: 16px;
+      color: #26a69a;
       width: 150px;
       height: 130px;
       text-align: center;
-      
+      background-color: #fff;
       position: absolute;
-      background-color: brown;
       top: 70px;
       left: 0;
       right: 0;
-      
+    
+      .active-currency {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+      .currency-hover {
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.03);
+        }
+      }        
+   
     }
     .hide {
         display: none;
