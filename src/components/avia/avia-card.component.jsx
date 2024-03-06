@@ -2,8 +2,7 @@
 import { useState } from "react";
 
 
-import Button from "../button/button.component";
-
+import Button,{ BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 
 import { AviaCardContainer,BtnIcon,BtnIconDel } from "./avia-card.styles";
@@ -17,16 +16,42 @@ const defaultAviaTicketForm = {
 }
 
 const AviaCard = ({ getForm }) => {
-  console.log(getForm)
+
   const [aviaTicketForm,setAviaTicketForm] = useState(defaultAviaTicketForm);
   const { origin,destination,departDate,returnDate } = aviaTicketForm;
+  const [checkData,setCheckData] = useState('');
 
   const handleChange = (event) => {
-
     const { name,value } = event.target;
     setAviaTicketForm({ ...aviaTicketForm,[name]: value })
   }
-  console.log('aviaTicketForm',aviaTicketForm)
+
+  const submitForm = (data) => {
+    if (!data.origin) {
+
+      return setCheckData('origin');
+    }
+    if (!data.destination) {
+      return setCheckData('destination');
+
+    }
+    if (!data.departDate) {
+      return setCheckData('departDate');
+
+    }
+    if (!data.returnDate) {
+      return setCheckData('returnDate');
+
+    }
+    getForm(aviaTicketForm);
+    setCheckData('');
+  }
+
+  const resetForm = () => {
+    setAviaTicketForm(defaultAviaTicketForm);
+    setCheckData('');
+  }
+
   return (
     <AviaCardContainer>
 
@@ -65,15 +90,21 @@ const AviaCard = ({ getForm }) => {
           value={returnDate}
         />
       </div>
+      {checkData ?
+        (<div style={{ marginLeft: '24px' }} >Please input: <span style={{ color: 'red',fontSize: '24px' }}>''{checkData}''</span> </div>)
+        : ('')
+      }
+
+
       <div className="wrapper-button">
         <Button
-          onClick={() => getForm(aviaTicketForm)}
-          buttonType='purple-button'
+          onClick={() => submitForm(aviaTicketForm)}
+          buttonType={BUTTON_TYPE_CLASSES.purple}
         > SEARCH  <div className="image-btn"><BtnIcon /></div>
         </Button>
         <Button
-          onClick={() => setAviaTicketForm(defaultAviaTicketForm)}
-          buttonType='pink-button'
+          onClick={() => resetForm()}
+          buttonType={BUTTON_TYPE_CLASSES.pink}
         > RESET
           <div className="image-btn"><BtnIconDel /></div>
         </Button>
@@ -85,4 +116,3 @@ const AviaCard = ({ getForm }) => {
 
 export default AviaCard;
 
-// tabindex = "0" style = "display: block; width: 569.5px; left: 0px; top: 46px; height: 0px; transform-origin: 0px 0px; opacity: 0.123702; transform: scaleX(0.386591) scaleY(0.386591);"

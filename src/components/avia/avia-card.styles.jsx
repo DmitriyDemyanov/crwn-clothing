@@ -27,6 +27,7 @@ export const AviaCardContainer = styled.div`
   ${InputGroup}{
     margin: 0 0 8px;
   }
+ 
   .wrapper-button {
     padding: 0 24px;
     width: 100%;
