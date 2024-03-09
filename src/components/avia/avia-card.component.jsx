@@ -1,12 +1,14 @@
 
-import { useState } from "react";
-
+import { useContext,useEffect,useState } from "react";
+import { Link,useNavigate } from "react-router-dom";
+import { AviaContext } from "../../context/avia.context";
 
 import Button,{ BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 
 import { AviaCardContainer,BtnIcon,BtnIconDel } from "./avia-card.styles";
 import FormInput from '../../components/form-input/form-input.component'
+
 
 const defaultAviaTicketForm = {
   origin: '',
@@ -16,15 +18,59 @@ const defaultAviaTicketForm = {
 }
 
 const AviaCard = ({ getForm }) => {
+  const nav = useNavigate();
 
   const [aviaTicketForm,setAviaTicketForm] = useState(defaultAviaTicketForm);
   const { origin,destination,departDate,returnDate } = aviaTicketForm;
   const [checkData,setCheckData] = useState('');
 
+  const [originsList,setOriginsList] = useState([]);
+  const [destinationsList,setDestinationsList] = useState([]);
+
+  const { cities,countries } = useContext(AviaContext);
+
+
   const handleChange = (event) => {
     const { name,value } = event.target;
+
     setAviaTicketForm({ ...aviaTicketForm,[name]: value })
   }
+
+  useEffect(() => {
+    const citiesName = [];
+    cities.filter((city) => {
+      const text = city.name;
+      if (
+        text &&
+        origin &&
+        origin !== text &&
+        text.toLowerCase().startsWith(origin.toLowerCase())
+      ) {
+        citiesName.push(`${text}, ${countries[city.country_code]} `);
+        return true;
+      };
+      return false;
+    });
+    setOriginsList(citiesName.sort());
+  },[origin]);
+
+  useEffect(() => {
+    const citiesName = [];
+    cities.filter((city) => {
+      const text = city.name;
+      if (
+        text &&
+        destination &&
+        destination !== text &&
+        text.toLowerCase().startsWith(destination.toLowerCase())
+      ) {
+        citiesName.push(`${text}, ${countries[city.country_code]} `);
+        return true;
+      };
+      return false;
+    });
+    setDestinationsList(citiesName.sort());
+  },[destination]);
 
   const submitForm = (data) => {
     if (!data.origin) {
@@ -45,6 +91,7 @@ const AviaCard = ({ getForm }) => {
     }
     getForm(aviaTicketForm);
     setCheckData('');
+    nav('avia-place');
   }
 
   const resetForm = () => {
@@ -52,29 +99,46 @@ const AviaCard = ({ getForm }) => {
     setCheckData('');
   }
 
+  const handleChangeName = (event) => {
+    const { name,value } = event.target;
+    setAviaTicketForm({ ...aviaTicketForm,[name]: value });
+  }
+
+  const setFilter = (value,name) => {
+    setAviaTicketForm({ ...aviaTicketForm,[name]: value });
+  }
+
   return (
+
     <AviaCardContainer>
 
       <div className="card-content-wrapper">
         <span className="card-title"> Card Title</span>
+
         <FormInput
-          label='origin'
+          label='Names'
           type='text'
           required
-          onChange={handleChange}
+          onChange={handleChangeName}
           name='origin'
           value={origin}
+          dropdownList={originsList}
+          onDropListClick={setFilter}
         />
+
         <FormInput
-          label='Destination'
+          label='Destination ROM'
           type='text'
           required
           onChange={handleChange}
           name='destination'
           value={destination}
+          dropdownList={destinationsList}
+          onDropListClick={setFilter}
         />
+
         <FormInput
-          label='depart date'
+          label='depart date 2024-03'
           type='text'
           required
           onChange={handleChange}
@@ -82,7 +146,7 @@ const AviaCard = ({ getForm }) => {
           value={departDate}
         />
         <FormInput
-          label='Return date'
+          label='Return date 2024-03'
           type='text'
           required
           onChange={handleChange}
@@ -94,7 +158,6 @@ const AviaCard = ({ getForm }) => {
         (<div style={{ marginLeft: '24px' }} >Please input: <span style={{ color: 'red',fontSize: '24px' }}>''{checkData}''</span> </div>)
         : ('')
       }
-
 
       <div className="wrapper-button">
         <Button

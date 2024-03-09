@@ -9,7 +9,7 @@ import Favorites from './routes/favor/favorites.component';
 import TvMain from './routes/tv/tv.component';
 import TodoList from './routes/todo-list/todoList.component';
 import MainWeather from './routes/weather/weather.component';
-import AviaTickets from './routes/avia/avia-tickets.component';
+import Avia from './routes/avia/avia.component';
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const App = () => {
           <Route path='tv' element={<TvMain />} />
           <Route path='todo' element={<TodoList />} />
           <Route path='weather' element={<MainWeather />} />
-          <Route path='avia' element={<AviaTickets />} />
+          <Route path='avia/*' element={<Avia />} />
         </Route>
       </Routes>
     </div>

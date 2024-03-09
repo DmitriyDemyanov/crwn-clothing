@@ -2,7 +2,7 @@ import { Fragment,useContext,useState } from 'react';
 
 import { AviaContext } from '../../context/avia.context';
 
-import AviaCard from '../../components/avia/avia-card.component';
+import AviaCard from './avia-card.component';
 import { AviaTicketsContainer } from './avia-tickets.styles';
 
 const AviaTickets = () => {
@@ -10,7 +10,7 @@ const AviaTickets = () => {
   const [currency,setCurrency] = useState('US');//  не знаю где посмотреть как записать евро?
   const [currentDropDown,setCurrentDropDown] = useState(true);
 
-  const { setSendTicket } = useContext(AviaContext)
+  const { fetchTickets } = useContext(AviaContext)
   const toggleDropDown = () => setCurrentDropDown(!currentDropDown);
   const currencySelection = (cur) => {
     setCurrency(cur);
@@ -18,7 +18,7 @@ const AviaTickets = () => {
   }
 
   const submitForm = (item) => {
-    setSendTicket({ ...item,currency: currency })
+    fetchTickets({ ...item,currency: currency })
   }
 
   return (
